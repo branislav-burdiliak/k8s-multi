@@ -13,7 +13,7 @@ before_install:
   # give access to service account
   - gcloud auth activate-service-account --key-file travis-deployer.json
   - gcloud config set project k8s-multi-294122
-  - gcloud config st compute/zone europe-west1-b
+  - gcloud config set compute/zone europe-west1-b
   - gcloud container clusters get-credentials cluster-1
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t branislavburdiliak/docker-multi-client-test -f ./client/Dockerfile.dev ./client
